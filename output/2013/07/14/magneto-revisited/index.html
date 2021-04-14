@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Magneto Revisited
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2013/07/14/magneto-revisited/">Magneto Revisited</a></h1>
+</header>
+<div class="post-content">
+<p>I recently created my second site with Magneto, so I&rsquo;m going to share my experience in doing so.</p>
+<h2 id="background">Background</h2>
+<p>I have had a <a href="http://EmmaCan.com">website for my daughter</a> hosted on Squarespace for a little over a year. The initial concept for the site was a sort of picture based storybook, something that I could read to my daughter as a bedtime story perhaps. None of the templates on Squarespace did exactly what I wanted, so I got a close approximation of what I wanted by futzing around with javascript and CSS every time that I made a post.</p>
+<p>All of that futzing meant that I only made about 3 posts, all very soon after I created the site. I attribute that lack of posting to two factors (and I like to believe that it isn&rsquo;t because I&rsquo;m a bad father):</p>
+<ol>
+  <li>The time it took to make a post &ndash; to make the Squarespace site do what I wanted it to do, I had to spend about 20 to 30 minutes for each post. That was mostly because I would have to look at the past posts to re-learn what I had hacked together the previous time.</li>
+  <li>Having to log in to Squarespace &ndash; I&rsquo;ve found that having to log in to a service is a large enough hurdle to discourage me from using it. Any friction in the form of discouragement is a factor that will undermine my intentions and that I want to eliminate.</li>
+</ol>
+<p>So I decided to abandon Squarespace and create another Magneto site.</p>
+<h2 id="change-of-plans">Change of Plans</h2>
+<p>As I said earlier, I had an idea in my head of creating a website that was sort of like a children&rsquo;s bedtime story book, to which I would add new information about my daughter as she grew up and could do more things. But I ran into problems with this concept. Where would a new user start in reading the story? If I put them at the beginning of the book then they would get the full effect of the story. However, my friends and family that checked back often would have to jump through hurdles to get to the new stuff. Additionally, in a children&rsquo;s book there is generally one picture and caption per page. Having the same effect on the web would require a lot of clicking and waiting<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, delivering a poor overall user experience.</p>
+<p>So I abandoned the original idea and one of my primary reasons for leaving Squarespace<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>. The new concept reminds me of what you would see on many Tumblr sites, pictures or videos with some comments.</p>
+<h2 id="new-implementation">New Implementation</h2>
+<p>Setting up Magneto was very easy to do. I simply followed <a href="http://brunow.org/2013/03/27/magneto/">my instructions</a> (having to fix a couple of typos along the way) and I had the basic site up in a few minutes. It is so much easier the second time around.</p>
+<p>Despite changing my overall concept of the site, I still want to tell a story through the use of pictures and videos. In order to do that, I had to make some modifications to the stock Magneto setup.</p>
+<p>First, I added some hacky javascript to the article template so that my pictures are in a separate div from the caption text. You can see that javascript in <a href="https://github.com/DavidBrunow/EmmaCan.com/blob/master/templates/post_article.erb">post_article.erb on GitHub</a>. This allows me to show the caption text on top of the image when it is moused over, and let&rsquo;s the images speak the rest of the time.</p>
+<p>Next, I created an <a href="https://github.com/DavidBrunow/EmmaCan.com/blob/master/plugins/html5video.rb">HTML5 plugin</a> that I use instead of Don&rsquo;s video plugin. As I learned after diving into this, HTML5 video is a bit of a pain in its current form, which I attribute to Firefox&rsquo;s insistence on not supporting the H.264 format. The plugin that I created does not account for this issue and therefore the videos do not show up in Firefox (although I added more hacky javascript to allow them to be downloaded). Not supporting Firefox has given <a href="https://twitter.com/paraboloo/status/355400925713661952">my father a reason to troll me</a>, but I had to make a decision based upon my particular constraints, and one of those constraints is that I would like to be able to make the posts completely from the file system on my iOS devices. From my research, it isn&rsquo;t super straightforward to export Ogg Vorbis from the iPhone and even if I did that, I would be using twice as much space to store each video, which is just a waste. I also want to have full control over my videos, and I don&rsquo;t want to have to log into yet another web service. So for now, HTML5 with no Firefox support is the way I&rsquo;m going.</p>
+<p>Now a short bit about my experience serving images and videos. I have no prior experience in this area (my current professional work involves sites on an intranet that have little to no media assets) so I was experimenting with serving these assets straight from my server (which is the lowest tier virtual private server at <a href="http://www.midasgreentech.com">Midas Green Tech</a>). With this strategy, my server would become unresponsive shortly after uploading updates to the site. I believe that this is because the server was caching those assets in memory, but I am not completely sure. I next experimented with a CDN, <a href="https://www.cloudflare.com">Cloudflare</a> to be exact, and the server&rsquo;s unused memory went up dramatically and load times shortened dramatically. In other words, as convention would tell you, use a CDN.</p>
+<p>The last thing that I modified was Don&rsquo;s timeago.coffee. I wanted the time stamps on my daughter&rsquo;s site to display my daughter&rsquo;s age at the time of the posting, so I created <a href="https://github.com/DavidBrunow/EmmaCan.com/blob/master/items/js/timesince.coffee">timesince.coffee</a>. You can provide the script a starting date and it will display how long after the date that that post occurred, with accuracy to a month.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I am quite pleased with my switch to Magneto for my daughter&rsquo;s site. I have already posted more times than I did on the previous platform, and more importantly I don&rsquo;t get that feeling of dread that I usually do when I have to put in a password and navigate a site that I&rsquo;m not used to navigating. I can almost do everything on my iPhone.</p>
+<p>Would I recommend this setup to someone who is not technically minded? Definitely not. But if you are already managing a Linux server and want to share some pictures and memories with family and friends, or just want to have a memory for yourself, I think this is a great way to go. I might just be putting together another soon, and I will definitely be iterating upon my daughter&rsquo;s site in order to get it closer to my original concept.</p>
+<p>You can follow me on Twitter <a href="https://www.twitter.com/davidbrunow">@davidbrunow</a> where I will post links to any further blog posts about my experience with Magneto. And as a reminder, Magneto was created and open sourced by <a href="https://www.twitter.com/donmelton">@donmelton</a>.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>I could make the waiting after clicking much shorter by fully loading all of the content at the beginning, and then using JavaScript to hide and show different &ldquo;pages&rdquo;, but that would add more complexity to the site and make the template system generated by Magneto more difficult to use. Scrolling is very natural on the web, and probably the best way to do it. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>I do not regret my decision to stop using Squarespace, because of the following benefits of self hosting: 1) I have the content on my local machine and can use it any way that I like, 2) I don&rsquo;t have to log in, and 3) I can run my daughter&rsquo;s site on the same server that I run my own which saves me money. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2013-07-14T08:55:17-05:00">on Sunday, July 14, 2013 at 8:55 AM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2013/05/07/shes-seizing/" title="Previous post">&larr;&nbsp;She&rsquo;s Seizing</a> &middot; <a href="https://brunow.org/2013/07/18/wake-up-to-music/" title="Next post">Wake Up to Music&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

@@ -1,0 +1,11 @@
+---
+published: 2016-02-19T07:24:34-06:00
+title: My Approach To Building Websites
+---
+Yesterday I was fixing a form for a website I didn't build. Another team built it sometime in the past, using HTML and PHP. My first task was figuring out why the form wasn't working intermittently and then to fix it. Intermittent issues are frustrating by themselves but get even more so when you have no idea which parts of what are doing what actions and have to dig through the code to figure it out. Every implementation of sending email is fundamentally the same, but that still leaves a huge opportunity for different implementation choices.
+
+This incident made me realize a part of my preference for building websites that feels contrary to my usual philosophy. Usually I want to control everything and that control generally means building components myself and keeping them on my own server. But I don't want to build form submission components. I don't want to run PHP or any other language on my server if I can help it. I don't want to slow down my site with any of that complexity, and I don't want to have to worry about the additional attack vectors that enabling a server side language or database create.
+
+I just want a widget, that I can fully customize, that handles form submission for me. They worry about getting the client and server side validation right. They worry about the mail server and credentials and what not. I drop it into the page in static HTML or through asynchronous JavaScript and it doesn't slow down my site or put me in a position where I'm digging through my own code in a couple of years trying to figure out what I did originally and what I broke.
+
+It's weird to me that I don't care about having 100% control in this situation, and I'm not sure if I can define what is different between this and the situations where I do want control. Maybe it is because the components are simple and fully contained which makes them easy to just plug into everything else without cross contamination.

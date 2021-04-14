@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Magneto
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2013/03/27/magneto/">Magneto</a></h1>
+</header>
+<div class="post-content">
+<p>As I state on my &lsquo;about&rsquo; page, I am using a static blogging engine created and open sourced by <a href="http://donmelton.com">Don Melton</a> to create this site. I&rsquo;ll to talk through why I chose Magneto, the current limitations of my setup, and walk through simple tutorial for other ruby amateurs that may want to set up their own Magneto site.</p>
+<p>The main reason that I want to use a static blogging engine is that I want to have complete control over my content. With Magneto, every part of my website is generated on my local computer. If the company that I rent a server from goes belly up, or the hardware server on which I have one small, virtualized chunk gets seized by the government, I could be back up and running on a new server with a different company before the DNS records could change.</p>
+<p>Since I have complete control over the content, that also means that I can change the CSS and JavaScript directly. When using a drag and drop type tool that someone else created, I feel like I have to think through someone else&rsquo;s mind. I don&rsquo;t know their mental model for the task I am doing, so I have to figure it out before actually getting anything done. With Magneto, I just have to be able to read source code and think like me, and I&rsquo;ve gotten good at the latter.</p>
+<p>So why Magneto in particular? It is written in ruby and I was exposed to it through Don&rsquo;s blog at the right time. If I had wanted to learn php, I would have started using Marco Arment&rsquo;s <a href="http://www.marco.org/secondcrack">Second Crack</a> long ago.</p>
+<h2 id="limitations">Limitations</h2>
+<p>Currently, I have run into only one significant limitation with Magneto. I am certain that I can build a workaround, but I haven&rsquo;t thought about it too much yet.</p>
+<p>Doing anything with my website while on the go, other than edits to content, is more difficult than I would like. And even edits require that my computer is on, connected to the internet, and watching my local directory for changes. None of those can be counted on to be true for a laptop.</p>
+<h2 id="getting-started-with-magneto">Getting Started with Magneto</h2>
+<p>These instructions are based on my experience installing Magneto on my 2012 MacBoook Air running Mountain Lion. But I did it a little while back, so if you run into problems, talk to me on twitter <a href="http://www.twitter.com/davidbrunow">@davidbrunow</a>.</p>
+<p>Getting your site up and running with some custom design settings shouldn&rsquo;t take more than a couple of hours, less if you know exactly what you want everything to look like.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+  <li>Web server - could be any variety since you will be sending it static files. However, if you are running a Windows or other non-*nix based server you will at least have to come up with a different solution to deploying your files than I will discuss here.</li>
+  <li>I will not cover the setup of this server here &ndash; I found all of the reference materials at <a href="http://www.linode.com">linode</a> very helpful if you are running a *nix based server.</li>
+  <li>*nix based local system (Mac OS X, Linux, Unix)</li>
+  <li>You must have ruby installed locally. If you don&rsquo;t have it installed, follow <a href="https://rvm.io/rvm/install/">these instructions</a>.</li>
+  <li>You will also need <a href="https://github.com/josh/ruby-coffee-script">coffeescript</a>, <a href="http://kramdown.rubyforge.org">kramdown</a>, <a href="http://codeforpeople.rubyforge.org/directory_watcher/classes/DirectoryWatcher.html">directory watcher</a>, <a href="https://rubygems.org/gems/multi_json">multi json</a>, <a href="https://github.com/sstephenson/execjs">exec js</a> and <a href="http://sass-lang.com">SASS</a> installed locally.</li>
+  <li>You will need to be able to use a text editor (I use <a href="https://github.com/textmate/textmate">TextMate 2</a> because I want to be like the cool kids) and the command line.</li>
+</ul>
+<h3 id="installing-magneto">Installing Magneto</h3>
+<p>First, let&rsquo;s check to make sure that you have the prerequisite gems installed. Navigate to this directory either in Terminal or Finder (if you have a version of ruby other than 1.8 installed, then the path will be slightly different):</p>
+<p>/Library/Ruby/Gems/1.8/gems/</p>
+<p>Look at the contents of that directory, and see if the following directories exist:</p>
+<p>coffee-script-2.2.0<br />
+kramdown-0.14.1<br />
+sass-3.2.5<br />
+directory_watcher-1.4.1<br />
+execjs-1.4.0<br />
+multi_json-1.5.0</p>
+<p>If any of them are missing, run the following applicable commands to install them (since you are using the <code>sudo</code> command, you will have to enter your password after the first command):</p>
+<pre><code>sudo gem install coffee-script
+sudo gem install kramdown
+sudo gem install sass
+sudo gem install directory_watcher
+sudo gem install execjs
+sudo gem install multi_json
+</code></pre>
+<p>Magneto&rsquo;s installation is just as simple as the other gems. You just need to run this command on your local machine:</p>
+<pre><code>sudo gem install magneto
+</code></pre>
+<p>That was easy, wasn&rsquo;t it? Now let&rsquo;s put some content out there.</p>
+<h3 id="website-generation-files">Website Generation Files</h3>
+<p>Now, you will need to create the files that Magneto uses to create your website. The simplest way to start is to download all of the files from Don Melton&rsquo;s website from <a href="https://www.github.com/donmelton/donmelton.com">github</a> and then put them in a directory. I created a directory called &lsquo;brunow.org&rsquo; off of my home folder. I think that something off of your home folder will be simplest, since you can use &lsquo;~/&rsquo; when needing to provide absolute paths.</p>
+<p>I started by trying to download as few files as possible. The upside of this approach is that I was able to see what each file did by seeing which features were missing at each step. The downside is that it took longer and ground my teeth a lot. But since I already did that for you, I will describe each of the files that you need and what they do, grouped by directory.</p>
+<p><strong>~/brunow.org/</strong></p>
+<p>The files in this directory handle the basic scripting of building the website as well as the overall configuration:</p>
+<p><strong>Rakefile</strong>: this is ruby&rsquo;s version of a makefile. In general, it is a script that performs certain tasks. In this case, it will start a new draft post, deploy files to your server, clean up folders and post a draft. You will need to make changes to this file, which I will describe later.<br />
+<strong>config.yaml</strong>: this is a general configuration file for your website. You will need to change a number of values in here, which I will describe later.<br />
+<strong>script.rb</strong>: I&rsquo;m not sure of the most correct way to describe this file. Pretty much, it is the main source code file for the website. Magneto will read through this file, and generate posts based upon the files in the /Items path. This is the main component that uses all of the other ruby files to put all of the pages together.</p>
+<p><strong>~/brunow.org/Items</strong></p>
+<p>The files in this directory are either a template of each file that will be moved to the server for the website (about.md will become /about/index.html) or the file itself (/favicon.ico will become /favicon.ico in the output.) All content, such as the &lsquo;About&rsquo; page and each individual blog post, is in a variety of <a href="http://daringfireball.net/projects/markdown/">Markdown</a> format called <a href="http://kramdown.rubyforge.org/syntax.html">kramdown</a> and when run through Magneto will be moved into its own directory and named index.html. Anything that will be generated by Magneto is in a file with a .erb extension.</p>
+<p><strong>.htaccess</strong>: this is a file that lives on web servers to establish access rights to directories.<br />
+<strong>404.md</strong>: this is the content that will be displayed when a page cannot be found on your server. It doesn&rsquo;t follow the rule about being moved into a folder and renamed index.html.<br />
+<strong>about.md</strong>: this is content about you. Well, when you first download it, it is content about Don. So you will want to make it about you.<br />
+<strong>archives.erb</strong>: this is the template for the archives page of the website. This file contains both HTML and ruby. The ruby is used to group your posts by dates and display links to each of them in one location.<br />
+<strong>favicon.ico</strong>: this is the image that will show up in the browser bar when someone visits your website. You will need to provide and image and then you can follow [John Gruber&rsquo;s instructions on how to make a retina favicon].<br />
+<strong>index.erb</strong>: this is the template for every file that will be an index.html, which is based upon the document.erb template.<br />
+<strong>robots.txt.erb</strong>: this is the template for the file that tells the ethical bots whether they can traverse your site<br />
+<strong>rss.xml.erb</strong>: this is the template for your RSS feed.<br />
+<strong>sitemap.xml.erb</strong>: this is the template for your site map.<br />
+<strong>css/style.sass</strong>: this is the stylesheet for your website, in [SASS] format. It will become /css/style.css after processing through Magneto (which handles running it through the SASS engine for you).<br />
+<strong>includes/sidebar.erb</strong>: the includes folder holds different &lsquo;components&rsquo; of the web page. This particular file the is template for a right sidebar that has a short bio, recent articles and search.<br />
+<strong>js/jquery.min.js</strong>: the jQuery JavaScript library is an easier way to do JavaScript - it contains advanced functions that would be a pain to write yourself, and solves browser compatibility problems.<br />
+<strong>js/timeago.coffee</strong>: this coffeescript changes the date at the end of your posts from &lsquo;January 3rd, 2013&rsquo; to &lsquo;Two months ago.&rsquo;</p>
+<p><strong>~/brunow.org/plugins</strong></p>
+<p>The files in this directory are called by either the script.rb file or by the .erb files that build the pages. Each performs its own little part in the process of website generation, and has documentation at the beginning which I will pretty much restate here:</p>
+<p><strong>copyright_year.rb</strong>: uses the copyright year information in your config.yaml file to determine how to display the copyright years <br />
+<strong>image.rb</strong>: creates proper image tags<br />
+<strong>items.rb</strong>: parses individual markdown files to create posts<br />
+<strong>markdown_inline.rb</strong>: parses the markdown syntax<br />
+<strong>reduce_empty_lines_filter.rb</strong>: removes extra whitespace<br />
+<strong>relative_to_absolute_urls_filter.rb</strong>: changes relative URLs to absolute<br />
+<strong>remove_more_marker_filter.rb</strong>: gets rid of the MORE marker<br />
+<strong>strip_html.rb</strong>: not sure<br />
+<strong>symbolic_to_numeric_entities_filter.rb</strong>: changes symbols like <code>&amp;amp;</code> to their numeric equivalent <code>&amp;#38;</code><br />
+<strong>video.rb</strong>: creates the proper video tags</p>
+<p><strong>~/brunow.org/templates</strong></p>
+<p><strong>document.erb</strong>: the basic template of each &lsquo;index.html&rsquo; file that will be created by Magneto. <em>You will need to make changes in this file</em><br />
+<strong>page.erb</strong>: the template of the page that is inside of the document<br />
+<strong>post.erb</strong>: the template for each post that will be on the main site page<br />
+<strong>post_article.erb</strong>: the template of the page if it is an individual post, rather than all posts</p>
+<h3 id="customizing-magneto">Customizing Magneto</h3>
+<p>Now I will describe the small number of items that you absolutely need to modify to get Magneto running as well as those that you will need to change so that you are not copying the style of Don&rsquo;s site.</p>
+<p>First, open config.yaml in your favorite text editor. Change <code>base_url:</code> to be the name of your site. If you know how your CDN works, then put in the proper URL there for <code>cdn_url:</code> &ndash; I think mine is the same as my base URL, but I haven&rsquo;t researched that yet. Change the copyright information to yours, and put in a description of your site. This description will be part of the document header if you use a template similar to Don&rsquo;s. If you are going to be using Google Analytics, then change Don&rsquo;s number to yours. I actually left Don&rsquo;s GA number in there because I am not using GA and I got an error when running Magneto when I took out that line completely. I did remove all of the GA JavaScript from the pages, however, and will try to track down the source of the problem with removing that line in the future. Instead of GA, I am using <a href="http://www.haveamint.com">Mint</a>. Why did I choose Mint? Because I want to own my analytics, just like I want to own everything else.</p>
+<p>Anyhow, back to changing the config.yaml file: change <code>search_sites:</code> to your site&rsquo;s URL, change the <code>title:</code> to whatever you want to show up in the browser&rsquo;s tab bar, and change <code>visible_posts:</code> to show the number of posts that you want on your main and subsequent pages.</p>
+<p>Now to the Rakefile. I don&rsquo;t use the &lsquo;stage&rsquo; or &lsquo;deploy&rsquo; sections of the Rakefile right now, so I won&rsquo;t speak to them. The one thing you need to change if you are going to be using the Rakefile for deployments is the part after <code>rsync</code>. You will need to put the information for the directory that you have your output folder in as the first argument after <code>-avz</code>. I use the absolute path because I have another process that calls Rakefile to make things more automatic. You will then need to put in the information for your server as the last parameter.</p>
+<p>Ok, now to the customization of the look of the site. Let&rsquo;s start in templates/document.erb. In here, you can change the names of the items in the header, add an image to your header like I have, or do other structural type tweaks. This is stuff that I can&rsquo;t tell you what to do &ndash; it is time to make it yours.</p>
+<p>So next, we will head to another area that I can&rsquo;t tell you what to do: the css. I change a few things in items/css/style.sass, such as the color of the footer, the way that the site handles different screen widths, and hiding the sidebar.</p>
+<p>Ok, you are just about ready, you just need to do three final things:</p>
+<ul>
+  <li>Delete the directories for each year (2012, 2013, etc.) These contain Don&rsquo;s blog posts, which you won&rsquo;t need.</li>
+  <li>Edit &lsquo;about.md&rsquo; so that it contains information about you instead of information about Don.</li>
+  <li>Replace favicon.ico with an icon of your choosing. Don&rsquo;s face won&rsquo;t represent you very well.</li>
+</ul>
+<h3 id="workflow">Workflow</h3>
+<p>My workflow is constantly evolving and hopefully I can keep updating it here as I learn to use Magneto in ways that will better suit my needs. Like the furniture in my living room, I constantly tweak my workflow to try to make myself more comfortable and reduce friction &ndash; anything that I can do to make myself write more often is a good thing.</p>
+<p>That being said, here is my current process:</p>
+<p>I start a draft post with the command <code>rake draft</code>. This way, a new file is automatically created in the drafts directory with a current timestamp and a title that I provide. Since I have my entire ~/brunow.org folder symlinked to my dropbox account, I can then either edit the file in TextMate 2 locally, or use IA Writer on my iPhone or iPad. Sometimes though, I bypass all of that and just start typing in my Notes app on my phone. Then I can just do a copy and paste from my Notes app on my Mac into TextMate when I am ready to create the post. Realistically, the limitation of having to make posts on my computer isn&rsquo;t a bad thing. It means that I have a higher likelihood of taking my time to develop my thoughts, helped by using a screen that is large enough to see meaningful amounts of text at the same time, which I find is better for editing and pruning my ideas.</p>
+<p>So that I can make edits to existing files from anywhere, I have Magneto running in auto mode on my MacBook Air. When Magneto detects a file that has changed in the /items path, it will regenerate the site. I then have folder actions setup on the ~/brunow.org file. I learned about how to set up the folder actions <a href="https://sites.google.com/site/andreatagliasacchi/blog/osxautomaticsyncwithfolderactions">on this site</a>. That action calls <a href="http://brunow.org/downloads/syncsharedfolder.scpt">a script</a>, which deploys the files to my web server with the command <code>rake deploy</code> and then runs the command <code>rake clean</code> which removes the output directory and all of its contents. As discussed earlier, <code>rake deploy</code> uses rsync to send your files to the server.</p>
+<p>Since I am using the auto mode of Magneto I could technically start a new post on my phone, but I really like how it automatically handles the timestamp for me instead of my having to figure out the format once again and then typing the whole thing.</p>
+<p>Once I have finished writing the post, I use the command <code>rake post</code> which re-timestamps, renames, and moves the files to the proper location for the site. Since I have Magneto running in auto mode, it rebuilds the site, and within about 30 seconds I get a Notification Center message that my files have been uploaded by my folder action.</p>
+<h3 id="future">Future</h3>
+<p>I hope to keep updating this as I get responses from other users, or as Don updates Magneto. A little down the road I hope to work on my fork of Magneto and my website and get them both up on Github so I can share any enhancements that I make.</p>
+<p>I also am planning on using Magneto to create a static engine that creates a sort of &ldquo;storybook&rdquo;. But that is still just tumbling around in my head right now.</p>
+<p>You should definitely follow <a href="http://www.twitter.com/donmelton">Don Melton on twitter</a> &ndash; he has already tweeted about one blog post about how to increase Magneto&rsquo;s efficiency and he has great stories about his years developing Safari at Apple. Plus he just seems like a nice guy.</p>
+<p>You should also follow <a href="http://www.twitter.com/davidbrunow">me on twitter</a> for none of the same reasons.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2013-03-27T16:50:43-05:00">on Wednesday, March 27, 2013 at 4:50 PM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2013/03/25/maintenance-mode/" title="Previous post">&larr;&nbsp;Maintenance Mode</a> &middot; <a href="https://brunow.org/2013/03/29/where-i-work/" title="Next post">Where I Work&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

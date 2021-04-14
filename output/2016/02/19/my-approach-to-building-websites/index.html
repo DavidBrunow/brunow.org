@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			My Approach To Building Websites
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2016/02/19/my-approach-to-building-websites/">My Approach To Building Websites</a></h1>
+</header>
+<div class="post-content">
+<p>Yesterday I was fixing a form for a website I didn&rsquo;t build. Another team built it sometime in the past, using HTML and PHP. My first task was figuring out why the form wasn&rsquo;t working intermittently and then to fix it. Intermittent issues are frustrating by themselves but get even more so when you have no idea which parts of what are doing what actions and have to dig through the code to figure it out. Every implementation of sending email is fundamentally the same, but that still leaves a huge opportunity for different implementation choices.</p>
+<p>This incident made me realize a part of my preference for building websites that feels contrary to my usual philosophy. Usually I want to control everything and that control generally means building components myself and keeping them on my own server. But I don&rsquo;t want to build form submission components. I don&rsquo;t want to run PHP or any other language on my server if I can help it. I don&rsquo;t want to slow down my site with any of that complexity, and I don&rsquo;t want to have to worry about the additional attack vectors that enabling a server side language or database create.</p>
+<p>I just want a widget, that I can fully customize, that handles form submission for me. They worry about getting the client and server side validation right. They worry about the mail server and credentials and what not. I drop it into the page in static HTML or through asynchronous JavaScript and it doesn&rsquo;t slow down my site or put me in a position where I&rsquo;m digging through my own code in a couple of years trying to figure out what I did originally and what I broke.</p>
+<p>It&rsquo;s weird to me that I don&rsquo;t care about having 100% control in this situation, and I&rsquo;m not sure if I can define what is different between this and the situations where I do want control. Maybe it is because the components are simple and fully contained which makes them easy to just plug into everything else without cross contamination.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2016-02-19T07:24:34-06:00">on Friday, February 19, 2016 at 7:24 AM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2016/02/18/the-encryption-debate-and-seeing-the-other-side/" title="Previous post">&larr;&nbsp;The Encryption Debate And Seeing The Other Side</a> &middot; <a href="https://brunow.org/2016/02/20/brute-force/" title="Next post">Brute Force&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

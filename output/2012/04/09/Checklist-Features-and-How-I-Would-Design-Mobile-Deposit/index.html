@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Checklist Features and How I Would Design Mobile Deposit
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2012/04/09/Checklist-Features-and-How-I-Would-Design-Mobile-Deposit/">Checklist Features and How I Would Design Mobile Deposit</a></h1>
+</header>
+<div class="post-content">
+<p>A <a href="http://www.marco.org/2012/04/06/photo-check-deposits">recent post by Marco Arment</a> prompted me to gather my thoughts on making deposits from a smartphone into your bank account. I have a healthy amount of experience working in banking, and some experience developing software, most of which overlaps the banking experience. I want to discuss how I think Chase implemented this feature and how I would approach the implementation.</p>
+<p>Marco ended his post with &ldquo;Sometimes, new technology is not progress.&rdquo; I&rsquo;d like to alter that slightly, to say that poorly implemented technology is not progress. I believe that Chase has implemented a &ldquo;checklist feature&rdquo;, a feature that a company creates to stand out in a direct product comparison, rather than to create something great for its customers. I figure that you will see these types of features in industries that are lower margin or maybe just full of accountants.</p>
+<p>Personally, I cannot stand &ldquo;checklist features&rdquo; – I am too attached to things being &ldquo;done the right way.&rdquo; But, from anecdotal evidence, this feature is benefitting Chase quite well. I have heard that people are changing banks simply to have the ability to deposit checks in this manner, and my mom hasn&rsquo;t complained about the poor implementation (other than the time that I had to explain to her that her deposit had been rejected, days after it was initially deposited.)</p>
+<h2 id="implementation">Implementation</h2>
+<p>Now, to the implementation – when offering a feature like this to my customers, I would be concerned about the following factors:</p>
+<p>Identifying check information (routing number, account number, amount, images)
+Getting the check information to the Bank securely
+Ensuring that checks have not already been deposited
+Determining when to give the customer credit for the deposit
+Providing confirmation of the deposit to the customer</p>
+<h2 id="chase">Chase</h2>
+<p>From what I can gather, and I must emphasize that I have no first hand knowledge of Chase&rsquo;s practices, this is how Chase implemented this feature:</p>
+<p>First, they prompt the customer for the amount of the check.</p>
+<p>Second, the app sends the images to the server without doing any image quality verification. (Why else would the check get rejected later?)</p>
+<p>Chase seems to have combined the third through fifth steps. I am guessing that someone manually looks at each set of images and makes the deposit manually, and that this is why it would it take days to receive a confirmation. That long confirmation time could also be explained by Chase waiting to get the funds from the other bank before approving the deposit, but I hope not, because this is poor way of handling this problem. I am not usually an advocate of pestering a customer with confirmations, but when it comes to money, I don&rsquo;t think you can give too many. In this case, give the customer two confirmations, one saying that the deposit is good and another saying when the funds are available.</p>
+<p>In summary, in Chase&rsquo;s implementation the iPhone is being used to digitally hand the checks to a teller.</p>
+<h2 id="brunow">Brunow</h2>
+<p>Here is how I would implement it:</p>
+<p>First, I would have the customer take a picture of the front and the back of the check. On the iPhone, I would do some basic calculations to determine whether the image was skewed or too out of focus.</p>
+<p>Second, if the images passed these basic tests, they would be securely sent to a server via HTTPs. The server would do additional image quality checks and then use OCR to determine guesses for the routing number, account number, check number, check date, and amount. The first three have a high likelihood of being correct, since checks in the United States all use the same font. The amount and check date would be more difficult, since it could be typed in any font or even handwritten. Therefore, after the check has been OCRed, the server would send the information back to the phone for confirmation by the customer. The customer would be prompted to change the information or confirm that it is correct.</p>
+<p>Third, once this information is confirmed, the server would ensure that that same check had not been deposited in the past, in any account.</p>
+<p>Fourth, the server would determine when the deposit would be available. In most cases, availability should be immediate. This risk rating would be determined by the customer&rsquo;s account history, average balance, and how long the customer had been with the Bank. Monthly and daily deposit limits would also be put in place based upon this same risk rating.</p>
+<p>Fifth, and most importantly for customer experience, the customer will be given confirmation before exiting the app, and will be told to write &ldquo;VOID&rdquo; on the front of the check.</p>
+<p>In summary, the iPhone and the server work together to bypass the teller.</p>
+<p>I&rsquo;ve left out a lot of implementation details, but other things like not being able to connect to the server or deposit multiple checks in the same deposit are relatively simple to solve. And of course, to actually make my way work you need to know about Check 21 and x9.37 file formats, and have a good way of risk rating your customers, hopefully based upon historical evidence. But compared to having a human being touching every deposit, that stuff is easy.</p>
+<h2 id="leverage-technology">Leverage Technology</h2>
+<p>The key difference between how I would implement this feature, and how Chase seems to have implemented it, is that I would put a lot more of the work and the trust on the technology. Yes, I would still have human eyes review at least a sample of the checks that are deposited. But technology is meant to reduce the burden of repetitive tasks. Let&rsquo;s use it that way.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2012-04-10T02:33:38-05:00">on Tuesday, April 10, 2012 at 2:33 AM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2013/02/03/Gesture-Induced-Fear/" title="Next post">Gesture Induced Fear&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

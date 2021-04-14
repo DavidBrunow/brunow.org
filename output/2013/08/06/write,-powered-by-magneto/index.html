@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Write, Powered by Magneto
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2013/08/06/write,-powered-by-magneto/">Write, Powered by Magneto</a></h1>
+</header>
+<div class="post-content">
+<p>In my original <a href="http://brunow.org/2013/03/27/magneto/">post about Don Melton&rsquo;s Magneto</a>, I said that one of the disadvantages of using Magneto is that there was no good way to write a post on mobile devices. When I wrote that, I had every intention of building an iOS app to work with Magneto. I am proud to <a href="https://github.com/DavidBrunow/Write--Powered-by-Magneto">open source a beta version of that project today</a>, which I am calling Write, Powered by Magneto in my typical pattern of naming things generically.</p>
+<p>I am not planning to make any further commits to this project until iOS 7 is out to avoid releasing any code that is under NDA.</p>
+<p>And yes, I know it&rsquo;s ugly (especially on iOS 6.) Adding design, and hopefully a bit of delight, are next on my to do list.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+  <li>
+    <p>You must have your Magneto blog&rsquo;s folders linked to Dropbox in some way, whether it be by symlinking Dropbox folders to your local directories or by storing all of your directory tree in Dropbox directly. Write uses Dropbox to keep all of the draft, post, images and video in sync and accessible on iOS.</p>
+  </li>
+  <li>
+    <p>You must have a Dropbox Core API key, which you can <a href="https://www.dropbox.com/m/login?cont=https%3A//www.dropbox.com/developers/apps">get from Dropbox</a>.</p>
+  </li>
+  <li>
+    <p>You must have Xcode so that you can build the app</p>
+  </li>
+  <li>
+    <p>You will need to make your own &ldquo;Credentials.h&rdquo; file in your project. It will need to look something like this (or you can look at my commit history, because I accidentally committed it&hellip;whoops!):</p>
+    <pre><code>  #ifndef Write_Credentials_h
+  #define Write_Credentials_h
+
+  #define CONSUMER_KEY @"your Dropbox key goes here"
+  #define CONSUMER_SECRET @"your Dropbox secret goes here"
+  #define USER_NAME_TOKEN @"choose a name for the oauth token to be saved in the keychain"
+  #define USER_NAME_TOKEN_SECRET @"choose a name for the oauth token secret to be saved in the keychain"
+  #define USER_NAME_USER_NAME @"choose a name for the user name to be saved in the keychain"
+  #define SERVICE_NAME @"choose a service name under which to save the keychain information"
+
+  #endif
+</code></pre>
+  </li>
+  <li>
+    <p>As specified in the Dropbox Core API setup instructions, you will need to change this section of &ldquo;Write-info.plist&rdquo; to have your Dropbox key after the &ldquo;db-&ldquo;:</p>
+    <pre><code>  &lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+  &lt;array&gt;
+      &lt;dict&gt;
+          &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+          &lt;array&gt;
+              &lt;string&gt;db-0bzv4hxmz3d1144&lt;/string&gt;
+          &lt;/array&gt;
+      &lt;/dict&gt;
+  &lt;/array&gt; 
+</code></pre>
+  </li>
+</ul>
+<h2 id="about-write-powered-by-magneto">About Write, Powered by Magneto</h2>
+<p>While designing Write, I tried my best to keep true to the way that Don designed Magneto. To that end, Write is designed simply, with no underlying database. The app relies only on the file system in Dropbox and two preferences that are stored about your blogs: the location of the blogs in Dropbox and the index of the blog you are currently viewing.</p>
+<p>This approach has at least one limitation that I have run into so far &ndash; since all of the information about your drafts and your posts is stored in memory, a large number of either could overwhelm the relatively small amount of memory available on your iOS device. I have done my best to keep that impact to a minimum.</p>
+<p>My other major design goal was to enable the user to complete the entire drafting and posting process inside the app. That is another reason I <a href="http://brunow.org/2013/07/14/magneto-revisited/">created the html5video plugin</a> for my daughter&rsquo;s site - I can easily and directly take the video on the device and upload it to Dropbox. In this version, any cropping of videos or images must be done in the Photos app, but at least everything can be done on the phone.</p>
+<h2 id="limitations">Limitations</h2>
+<p>Since the iOS app is not actually putting the file on your server when you press the &ldquo;Post&rdquo; button, some other process must be running to do so. The two options that I know of to do that are to be running Magneto in auto mode on your Mac, or to be running Magneto in auto mode on your server, with the Dropbox files shared to your server.</p>
+<p>Currently, I am doing neither of those &ndash; I am manually deploying to my server after posting in the iOS app.</p>
+<h2 id="walkthrough">Walkthrough</h2>
+<p>When you first open Write, after connecting to your Dropbox account, you will be shown a list of directories that might contain Magneto sites.</p>
+<p><a href="https://brunow.org/media/2013/08/Blogchoosingscreen.JPG"><img class="align-full" src="https://brunow.org/media/2013/08/Blogchoosingscreen.JPG" alt="Blog choosing screen" title="Blog choosing screen" /></a></p>
+<p>Upon choosing the site or sites that you want to have available in Write, you are taken to a list of the sites you have selected. You can choose one to see the drafts and posts for that blog.</p>
+<p><a href="https://brunow.org/media/2013/08/Availableblogs.JPG"><img class="align-full" src="https://brunow.org/media/2013/08/Availableblogs.JPG" alt="Available blogs" title="Available blogs" /></a></p>
+<p>Once you have chosen the blog you want to see, you will be shown a list of the file names for your drafts on that blog. Using the segmented controller at the top, you can choose to see the ten most recent posts.</p>
+<p>From this screen, you can choose a draft or post to see and edit the contents, or you can click on the &ldquo;New Draft&rdquo; button to create a new draft.</p>
+<p><a href="https://brunow.org/media/2013/08/Draftsformyblog.JPG"><img class="align-full" src="https://brunow.org/media/2013/08/Draftsformyblog.JPG" alt="Drafts for my blog" title="Drafts for my blog" /></a></p>
+<p>The view of the draft is simply the content of the markdown file. As you can see in the screenshot, nothing is wysiwyg. It is the exact same thing you would see if you were editing the file in Sublime Text 2 on your Mac.</p>
+<p><a href="https://brunow.org/media/2013/08/EditingaDraft.JPG"><img class="align-full" src="https://brunow.org/media/2013/08/EditingaDraft.JPG" alt="Editing a Draft" title="Editing a Draft" /></a></p>
+<p>As you can see in this next screenshot, I haven&rsquo;t put anything nice like a keyboard tray with common markdown keys in this version, but probably will in the future. You will also see a &ldquo;Save&rdquo; button. That button will upload the file to Dropbox, as will going back to the drafts screen. The file is automatically saved locally every five seconds. I have also included a button to add media, whether an image or a video. As I said before, this button will add the media to your Dropbox and place the proper tag at the cursor location in your file.</p>
+<p><a href="https://brunow.org/media/2013/08/EditingaDraftwithKeyboard.JPG"><img class="align-full" src="https://brunow.org/media/2013/08/EditingaDraftwithKeyboard.JPG" alt="Editing a Draft with Keyboard" title="Editing a Draft with Keyboard" /></a></p>
+<p>I think I am handling conflict resolution for the versions of files in a conservative manner. If the copy of the file on the local file system was modified after the copy on Dropbox, then Write updates the copy on Dropbox with the local copy. If the local file was modified before the Dropbox copy then Write creates a new &ldquo;conflicted&rdquo; version of the file.</p>
+<p>From the draft editing screen, you can choose the &ldquo;Post&rdquo; button to move the file from the Drafts folder to the items/current year folder. Choosing that button will change the time stamp in the file to the current time and change the name of the file to the name on the title line, if they differ.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I hope you find Write useful.</p>
+<p>If you would like to contact me for bug reporting or any other reason, I am on twitter @davidbrunow or you can email me at helloDavid@brunow.org.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2013-08-06T22:24:11-05:00">on Tuesday, August 6, 2013 at 10:24 PM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2013/07/18/wake-up-to-music/" title="Previous post">&larr;&nbsp;Wake Up to Music</a> &middot; <a href="https://brunow.org/2014/02/12/dharma-talks/" title="Next post">Dharma Talks&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

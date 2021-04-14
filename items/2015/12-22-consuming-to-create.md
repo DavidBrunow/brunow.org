@@ -1,0 +1,15 @@
+---
+published: 2015-12-22T19:36:45-06:00
+title: Consuming To Create
+---
+I'm reading [Stephen King's book On Writing](https://itun.es/us/rftVw.l) and he believes that one of the most important things a writer can do is read. The other most important thing is writing, but that's not what I want to talk about. 
+
+I started wondering if all creative professions benefit from consuming in the same way. Do good film makers watch a lot of movies, painters take in a lot of paintings, and metalsmiths look at a lot of jewelry? I'd bet so.
+
+So then what do software developers consume? Some may argue that software development is engineering and not art. That is true in many situations, especially in corporations where a developer is working on only a tiny bit of the overall application.
+
+But I live a different situation, and many others also do, where we build the whole application. And now that I think about it, I should be consuming more of the types of things I do. But what is analogous to a writer reading? It is a software developer reading code?
+
+I don't think it is. I think the proper analogy is a software developer using apps. I feel like I don't do enough of this and I think it could really help me make better apps, as I see how things are done well or poorly.
+
+Are you consuming enough of the right things?

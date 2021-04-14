@@ -1,0 +1,9 @@
+---
+published: 2015-12-13T22:31:34-06:00
+title: More Thoughts On Certifications
+---
+What are certifications designed to do -- what is the problem they are solving and the job they are doing? I think the job for a certification, whether it be from a specific training or test, or college curriculum completion in the form of a diploma, is to establish trust. This trust is meant to be based upon past accomplishments and is expected to be established immediately, bypassing the years of relationship building that is necessary to organically build trust between people.
+
+I believe that certificates do not work for their intended purpose. A certificate cannot reliably tell me the things I need to know to trust a person: whether she is reliable, smart, hardworking, and trustworthy. And I need to reiterate that I'd include many things as certificates that you may not immediately consider. College diplomas, technical certifications, professional licenses, and everything else that has a system in place to judge a person and determine whether to give her a piece of paper. They just don't do their job -- to the point where I will trust a person less if they have a certification.
+
+I think that I'm a leading indicator. By that I mean that most people still value certifications at this point but I see the trend heading toward distrust. If that is true, what will be next? How do we gain someone's trust? Will we be going back to a system where we earn it over years? Probably not. I think it will be by showing what you've done, at least in my line of work. Projects you've completed, problems you've solved, and things you've shipped on your own. That's what I want to see from anyone I hire.

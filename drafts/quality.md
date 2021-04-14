@@ -1,0 +1,23 @@
+---
+published: 2013-10-17T08:28:34-05:00
+title: Quality
+---
+Been reading Zen and the Art of Motorcycle Maintenance, so it's thoughts and tone may show through in this writing.
+
+One of the giant thoughts in the book revolves around Quality. Quality is an undefinable force that links our perception of an object and the object itself. Out of Quality comes those two pieces.
+
+Now I don't consider myself a tech writer, but I do appreciate good tech gadgets, so I'd like to discuss Quality as it relates to them. I know that this topic has been covered over and over and over again, but I hope to bring a fresh perspective.
+
+But I don't want to write this for the purpose of sharing my fresh perspective. I want to write this because I've been really angry for a while and I really don't know why. So my purpose is to examine that anger and hopefully find a way to fix it.
+
+I didn't really realize that Quality may be a part of why I am angry until after two recent experiences. One of those is consuming the thoughts of the aforementioned longly titled book. In addition to the discussion of Quality, the book shows pondering at length an admirable quality (other than that pesky, inevitable insanity), something that I have lost in my world of constant action. The other is a recent experience in a discussion with a coworker. He said that Apple is falling behind with their phone technology. I asked what Apple isn't doing that other companies are. He asked if I had seen the new Samsung watch. I asked if he had read any reviews of the watch.
+
+When I later turned that conversation over a bit in my mind, I noticed that it made me very angry. Not because I truly love Apple products, but because he was just so very *wrong*. And because I fear that this very wrongness means that we see the world very very differently. And if we see the world that differently, then we probably can't work together in the long run. See, I'm learning that working in a very small company is like being in a relationship and that compatibility matters a lot.
+
+Now of course you don't want everyone in a company to think the same way. You need diversity of thoughts and opinions and studies have shown this to be true. So what's the difference between lack of diversity and compatibility?
+
+A month or two ago I had a conversation with a friend on this subject. This was before I started reading the book so I didn't have its perspective on Quality to aid the discussion. He and I agreed that diversity of thoughts and opinions were a good thing. Then he suggested that "common sense" need to be shared among the parties in the relationship. I thought this a good idea, but suggested that "common sense" is quite hard to define so it is difficult to build a rule around that. But still, it gives us a bit of a starting point. People with a shared common sense, or sense of Quality, or sense of what they value, are more likely to get along together.
+
+In my jaded experience, it is quite difficult to convince someone on an issue on which they have an opinion if that issue has any amount of complexity at all. "Any amount of complexity at all" rules out things like historical facts that can be looked up somewhere. So an issue like "is it mandatory to have dedicated testers for a software development project" is an example of an issue with reasonable complexity, and one that I have fought with before. I could make arguments on both sides at length but I will always believe that the answer to that question is an emphatic yes. But how would I convince someone who doesn't agree? Gathering facts and numbers will help some, but the things that really matter can't be quantified. And worse, adding the friction of having to gather facts and numbers about an issue that seems obvious will add resentment and a memory of pain to the interaction. How many times will you fight that kind of fight before you just give up?
+
+That resentment and pain ultimately leads to a breakup. Have you ever known that you need to break up with a person and start to put the arguments for why, the explanation of why things just aren't working, together in you head beforehand? I have, and I've found it very difficult to specifically point items out. But really, even if you could point out every single time that person has wronged you, you'd still be leaving out the more important things. Since that person doesn't share your common sense (or the two don't overlap in enough or the right areas) they won't get it. They will tell you you are wrong. Or they will tell you they will change. But you aren't wrong, and they won't change.

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Silver Bullets - Cross Platform Development
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2016/01/31/silver-bullets---cross-platform-development/">Silver Bullets - Cross Platform Development</a></h1>
+</header>
+<div class="post-content">
+<p>My title for this blog post is on the technical side but I&rsquo;m going to keep the discussion high level and non-technical.</p>
+<p>Silver bullets kill monsters.</p>
+<p>In software development we have a fairly large and insidious monster called Cross Platform Development. This monster shows up when you want an application to work for everyone, like when you want an app that works for both Android phones and iPhones. But despite that example, this monster wasn&rsquo;t brought to life by the smartphone. Before smartphones, Cross Platform Development could mean Mac and Windows, Windows and Linux, or any such combination. This problem has been around for at least 30 years and software developers have been looking for solutions for nearly as long.</p>
+<p>I&rsquo;m firmly in the &ldquo;anti-Silver Bullet&rdquo; camp &ndash; I believe that software development is a complex task that cannot be simplified without losing something. By losing something, I mean that to simplify software development you have to compromise somewhere else, in performance, customization, control, or design. I don&rsquo;t like compromise. I also believe that humans are much more flexible than computers and they should be the part of the system that bends to make things work rather than expecting the machine to do it.</p>
+<p>I&rsquo;ll talk through the benefits of the Cross Platform Development Silver Bullet because, despite my bias, I do see definite benefits.</p>
+<p>The biggest benefit of the Cross Platform Development Silver Bullet is that you have a single code base rather than having a separate one for every platform. This is good because it takes time and money to write code, fix bugs, and test applications. Those costs are greatly reduced with a single code base and not just during initial creation of the application but for the years of maintenance that follow. This seems like a simple concept but it is a huge deal.</p>
+<p>Another benefit is developers don&rsquo;t need to learn as many languages. A single code base will probably be written in a single language and you might also need to speak the databases&rsquo; language (although the hip thing these days is to have the database speak the same language as the code base.) a single language means it is easier to find software developers that speak that language. If you want to write native (the opposite of Cross Platform) apps for every platform right now, you&rsquo;d need to speak somewhere between 3 and 5 languages minimum.</p>
+<p>In most evaluations this would be the point where I&rsquo;d share the downsides of the Cross Platform Development Silver Bullet. But it has no downsides. The problem is that it doesn&rsquo;t exist. In specific, it doesn&rsquo;t exist for what I need software to do. I do think there are situations where a Cross Platform Development Silver Bullet could work &ndash; situations where the compromises are OK.  Let me tell you why it won&rsquo;t work for me.</p>
+<p>First, it is too risky. These Silver Bullets are code bases themselves, software written by teams employed by large technology companies. These companies can afford to have very smart people working on open source projects because it makes sense for them at the time. But what if that changes? What if the company changes its priorities or goes out of business? The code you&rsquo;ve written will become useless, not immediately but over a relatively short time of months or years. You&rsquo;ll have to rebuild everything. You may be thinking &ldquo;it is open source, someone else will pick it up!&rdquo; Which may be true, but will they be as devoted to the project as the original team? Will they be as smart as that team? What are their incentives? Again, too risky.</p>
+<p>Second, and this ties in with the first reason, you will only be able to use the tools that the developers of the Silver Bullet give to you. If a shiny new feature comes out and those developers decide not to implement it, or worse, give you just a little control over it but not full control, then you can&rsquo;t use it the way you&rsquo;d like to. You may be thinking &ldquo;well that&rsquo;s no different than if Apple hasn&rsquo;t provided the feature&rdquo; but you&rsquo;re wrong. It is different because other apps can use the feature and users of your app will see that. If others can do it and you can&rsquo;t then you&rsquo;re at a disadvantage.</p>
+<p>Third, you will always be a little bit behind the features that native developers will get. The Silver Bullet works because people write code to make it work on multiple platforms. If a new feature comes out you have to wait for those people to write the code to enable it. And what if one platform has a feature that another doesn&rsquo;t? How does that work? I don&rsquo;t know, but the Silver Bullet can only solve that in two ways, either making you write that code yourself or not including that feature on either platform (I suppose there is a third way which involves adding a note in bold to the documentation letting you know that it only works on one platform, but that&rsquo;s not a great option.) Again, you&rsquo;ll always be behind.</p>
+<p>Fourth, your application won&rsquo;t feel right. This is the mushiest point I&rsquo;ll make, but we are a mushy species. Each platform has its own design style which is one of the ways that they differentiate themselves. Each platform is motivated and incentivized to keep their style unique. That design style goes further than the way things look, it is the way they function too. The way things look is easier for these Silver Bullets to get right. But the easiest way to make the functionality right across platforms is by limiting options. This means you can&rsquo;t differentiate your app as much as you might like. It also means that all apps built with the Silver Bullet start looking the same.</p>
+<p>Do I believe that every app should be native? No. I believe you need to use a different tool for different situations after weighing the benefits and drawbacks. I don&rsquo;t believe there is a one size fits all solution.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2016-01-31T09:30:41-06:00">on Sunday, January 31, 2016 at 9:30 AM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2016/01/30/causality/" title="Previous post">&larr;&nbsp;Causality</a> &middot; <a href="https://brunow.org/2016/02/01/building-confidence/" title="Next post">Building Confidence&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

@@ -1,0 +1,15 @@
+base_url: https://brunow.org
+cdn_url: https://brunow.org
+content_width: 960
+copyright: { starting_year: 2012, owner: David Brunow }
+description: Howdy, I'm David
+google_analytics_account: UA-34447905-1
+hidden_files: true
+jquery_version: 1.8.3
+kramdown: { entity_output: symbolic }
+remove_obsolete: true
+source_path: ~/Dropbox/websites/brunow.org/
+output_path: ~/public/brunow.org/public/
+search_sites: brunow.org
+title: David Brunow
+visible_posts: 10

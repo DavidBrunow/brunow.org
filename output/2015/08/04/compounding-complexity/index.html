@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Compounding Complexity
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2015/08/04/compounding-complexity/">Compounding Complexity</a></h1>
+</header>
+<div class="post-content">
+<p>One of the most difficult things about technology is that solutions quickly become very complicated. For example, let&rsquo;s say you want a website to show members of an organization. We will assume that you already have a website so we don&rsquo;t have to talk through that complex process in addition to my example.</p>
+<p>So you have a functioning website and you want to add a list of members of an organization. First you have to ask the question, how often will the members of this organization change? Who will be changing them? You run into the first bit of compounding complexity and have to decide whether you should use a database. Now a database really isn&rsquo;t a complex concept &ndash; it is simply an organized way to store and find information, but with it comes another piece of software that needs maintenance and another language to speak to talk to it. Plus you have to find a place to store the data and a way connect it to your website. So let&rsquo;s keep this simple and avoid the database for this example. We will update members by hand each time they change, which means a little more manual effort but if members don&rsquo;t change often then avoiding the complexity will be worth it.</p>
+<p>So we use our website software&rsquo;s built in editor and manually add a few members of our organization in a simple table. Now we want to make it so that clicking on a row of this table shows us more information about that member. We&rsquo;d prefer to let the user click anywhere on the row instead of having to click directly on the information in the row. Here comes more complexity! To make this table to work the way we want, we need to use a programming language called JavaScript. So we need to know another language and also how to make that language work with our website. We also have to be willing to fix that JavaScript if it breaks for any reason and be sure that it works in all of the 5 most used browsers. We decide to use JavaScript &ndash; we think this feature is worth the extra complexity. Now we can click on a row and see more information about a contact.</p>
+<p>The contact information looks pretty good, but there are a few things we&rsquo;d like to tweak to look a little better. Based upon the theme installed on our website, some of the text is bold where we want it normal weight and we&rsquo;d like to change some of the colors to highlight important information. We&rsquo;d also like to change that table that lists all the members so that when someone puts their mouse over one of the rows the row is highlighted so it is easier to see related information. Once again, here comes more complexity! Cascading Style Sheets (CSS) are used to change the style of things on a website. In prepackaged websites like Wordpress and Squarespace you can choose a theme that takes care of most of the CSS for you. But if you want to make a tweak here or there then you need to know yet another language and yet again how to make that language work with the website. We will choose to get the CSS working the way we want it in this situation because we really think changing the styles will make the information make more sense together.</p>
+<p>All of that is a lot to consider for one &ldquo;little&rdquo; feature, I mean all we want to do is show a list of members and information about them! I could make a Word document that did that in a few minutes!</p>
+<p>And even with all the complexity I discussed here, I didn&rsquo;t talk at all about best practices like ensuring your website is secure, that your web pages load fast, that your information is backed up, how to best create and test changes, et cetera, et cetera, et cetera. Technology is complex by necessity.</p>
+<p>Many systems try to remove, or abstract, away that complexity by limiting your options. That is great for situations where you are OK with those limitations and, frankly, where you are OK with looking like everyone else.</p>
+<p>But the best way to abstract away that complexity is with people. Good people who know the right way to do things, know which details you need to know about and which you don&rsquo;t, and that genuinely care.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2015-08-04T23:28:15-05:00">on Tuesday, August 4, 2015 at 11:28 PM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2015/08/03/fake-things/" title="Previous post">&larr;&nbsp;Fake Things</a> &middot; <a href="https://brunow.org/2015/08/05/ios-based-storefronts/" title="Next post">iOS Based Storefronts&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>

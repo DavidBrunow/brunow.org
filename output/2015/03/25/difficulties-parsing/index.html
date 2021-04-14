@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Difficulties Parsing
+		</title>
+		<meta name="viewport" content="width=1000" />
+		<meta name="generator" content="Magneto" />
+		<meta name="p:domain_verify" content="9f94ec5deca64dd5fb646ac495331b2f"/>
+		<link rel="stylesheet" href="https://brunow.org/css/style_v2.0.4.css" />
+		<link rel="alternate" href="https://brunow.org/rss.xml" type="application/rss+xml" title="RSS feed" />
+		<link rel="icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<link rel="shortcut icon" href="https://brunow.org/favicon.ico" type="image/x-icon"> 
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header id="banner">
+			<div class="sleeve">
+				<hgroup id="nameplate">
+					<a href="https://brunow.org/" title="Home page" class="headerLogo">
+						brunow.org logo
+					</a>
+				</hgroup>
+				<nav id="toc">
+					<ul id="menu">
+						<li class="menu-item">
+							<a href="https://brunow.org/podcast/" title="Podcast">
+								Podcast
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/apps/" title="Apps">
+								Apps
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/support/" title="Support">
+								Support
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="https://brunow.org/about/" title="About David">
+								About David
+							</a>
+						</li>
+						<li class="menu-item archives">
+							<a href="https://brunow.org/archives/" title="Older Stuff">
+								Archives
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="twitter-handle-container">
+					<a href="https://www.twitter.com/davidbrunow"
+					   target="_blank" >
+						<img alt="Twitter Handle"
+					     	 src="https://brunow.org/assets/twitter-logo-white.png"
+					     	 class="twitter-logo" />
+					    <span>
+							@davidbrunow
+						</span>
+					</a>
+				</div>
+			</div>
+		</header>
+		<div id="main">
+			<div class="sleeve">
+				<div id="content">
+				
+<article class="post format-standard">
+<header class="post-header">
+<h1 class="post-title"><a href="https://brunow.org/2015/03/25/difficulties-parsing/">Difficulties Parsing</a></h1>
+</header>
+<div class="post-content">
+<p>On the second episode of <a href="http://brunow.org/podcast">The David Brunow Podcast</a> I talked about difficulties I&rsquo;m having with my <a href="https://itunes.apple.com/us/app/dharma-talks/id807331897?mt=8">Dharma Talks</a> app. I&rsquo;d like to follow up that discussion with some examples that would be hard to share over audio only.</p>
+<p>The problem is that I&rsquo;m having trouble getting the proper information from the Mission Dharma website to display in the app. On the surface, this seems like a simple issue of taking the information that&rsquo;s on the website, figuring out which parts of it mean what, and then storing it in the right places in the app. For example, if I can find an anchor tag, represented in HTML as</p>
+<pre><code>&lt;a href="/talks/1"&gt;March 21, 2015: Talk Title, Talk Speaker&lt;/a&gt;
+</code></pre>
+<p>then I can take the text inside that tag as the raw Talk data. In this example, I can find the date by looking for the colon and taking everything before that colon and storing it as the date. I can find the title of the Talk by taking everything after the colon, looking for a comma, and then storing everything after the colon and before the comma as the title of the Talk. The rest of the text inside the tag is the speaker for that Talk. The URL to download the Talk is the easiest part because it is the full contents of the href tag.</p>
+<p>This seems pretty easy, problem solved! But not really. This is where the fragility of HTML scraping becomes a problem. This is why most people would recommend against HTML scraping and I would definitely agree with those people if there is any other, better way to solve the problem. Or if the system you are building needs to be 100% reliable. But most systems don&rsquo;t and I believe that Dharma Talks fits into that category.</p>
+<p>I&rsquo;ll give an example of the fragility. Here is an anchor tag that I ran into while I was initially developing Dharma Talks:</p>
+<pre><code>&lt;a href="/talks/1"&gt;March 21, 2015, Talk Title, Talk Speaker&lt;/a&gt;
+</code></pre>
+<p>Do you see the difference? It&rsquo;s subtle, but that comma after the year will completely ruin the parsing I described before. But while making the first version of Dharma Talks I&rsquo;d seen this pattern so I adjusted my parsing for it. First I look for a colon, and if there is one then I do the parsing I described before. If there isn&rsquo;t a colon then I find the second comma in the text inside the anchor tag and treat it the same as I did the colon earlier.</p>
+<p>This worked for over a year other than a couple of minor issues where the person that maintains Mission Dharma&rsquo;s website changed the text inside the anchor tag after the app had parsed it, resulting in two of the exact same episode. At that time I hadn&rsquo;t wanted to limit the parsing to any sort of uniqueness because I wanted it to be able to parse things as generally as possible &ndash; I feared any restrictions would make it more fragile.</p>
+<p>At this time the app only relied upon the Mission Dharma website being available for it to get new episodes. All the parsing was done inside the app and I had no control over what episodes were showing on someone&rsquo;s phone. I couldn&rsquo;t remove a duplicate episode that had had its title changed. I couldn&rsquo;t fix a parsing error if the person maintaining Mission Dharma&rsquo;s website didn&rsquo;t follow one of the two patterns I described above. I liked the simplicity of only needing the app and the website, but I hated how fragile the whole thing was. I hated that my name was on something that looked poorly made. The line between simple and shoddy is thin.</p>
+<p>Life got in the way and I didn&rsquo;t work on the app for a year. When I did get time I noticed that I had taken a shortcut in building the app and I had hard-coded the years to be parsed. By hard-coding, I mean that I had told the app to parse 2010, 2011, 2012, 2013, and 2014. You can probably see the problem there. Hard-coding is bad and I know that, but I&rsquo;m guessing I saw that as a very short term solution so I let it slide. That&rsquo;s a good lesson for the future.</p>
+<p>So I fixed the hard-coding so it looks at the current year and parses starting at that year all the way back to 2010 which should make that part of the app future-proof. I submitted the update to Apple, it was approved, and things worked. For about a week.</p>
+<p>Up above when I was describing the ways the parsing could break I only talked about the text inside the anchor tag. That&rsquo;s the nice way things can break. The bad way is if there is no anchor tag. For example, a simple typo could make this:</p>
+<pre><code>&lt;a href="/talks/1"March 21, 2015: Talk Title, Talk Speaker&lt;/a&gt;
+</code></pre>
+<p>Do you see the problem? The app would see it instantly and the parsing would break immediately. The opening anchor tag doesn&rsquo;t have its closing &lsquo;&gt;&rsquo; so it isn&rsquo;t truly an anchor tag. This is what happened about a week after I released the new version of the app. New Talks stopped being added to the app.</p>
+<p>I&rsquo;d been thinking about having an application on my server that does the parsing and stores it in a database for a while. That would give me the control I needed to make sure that the Talks were loaded in the app correctly. Since the database was on my server I could change any entries that got parsed incorrectly. If things were too broken on the Mission Dharma site I could manually add Talks to the database. I could finally guarantee uniqueness for each Talk because I had total control of the data in the database. Ultimately, it meant that I could make sure that the information for each Talk was correct.</p>
+<p>Why didn&rsquo;t I do this a year ago when I first released the app? A few reasons. I wanted the app to be able to live on without me and without my server. I wanted the components to be simple. And I didn&rsquo;t have experience with any programming language that I could run on my server. All my work had been on Windows servers and I had a Linux server. I still think these are valid reasons to make the decision I made, but if I had it to do over again I would have done it differently. I would have implemented the solution that I just did &ndash; a server application that contacts the Mission Dharma website for Talks to parse and an iOS app that gets the Talk information from that server application.</p>
+<p>That solution went live today.</p>
+</div>
+<footer class="post-footer">
+<p class="post-meta">Posted <time datetime="2015-03-25T20:44:29-05:00">on Wednesday, March 25, 2015 at 8:44 PM</time></p>
+</footer>
+</article>
+<nav id="pagination">
+<p id="post-pager"><a href="https://brunow.org/2015/03/24/why-would-you-want-to-live-in-that-future/" title="Previous post">&larr;&nbsp;Why Would You Want To Live In That Future</a> &middot; <a href="https://brunow.org/2015/03/25/your-biggest-competitor/" title="Next post">Your Biggest Competitor&nbsp;&rarr;</a></p>
+</nav>
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "https://discourse.brunow.org/",
+      discourseEmbedUrl = window.location.href;
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+
+</script>
+				</div>
+			
+			
+			</div>
+		</div>
+	<footer id="addendum">
+		<div class="sleeve">
+			
+			<p id="copyright">
+				Copyright &copy; 2012&ndash;2017 David Brunow
+			</p>
+			<p class="u-text-align-right">
+				<a href="https://brunow.org/rss.xml" 
+				   title="RSS feed">
+					RSS
+				</a>
+			</p>
+		</div>
+	</footer>
+	
+	
+	
+	</body>
+</html>
