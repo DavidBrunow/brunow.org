@@ -26,7 +26,7 @@ task :clean do
 end
 
 task :build do
-  sh 'magneto --config ~/Dropbox/websites/brunow.org/config.yaml --source ~/Dropbox/websites/brunow.org --output ~/public/brunow.org/public/'
+  sh 'magneto --config ./config.yaml --source . --output ./public/'
 end
 
 task :deploy => [:build] do
