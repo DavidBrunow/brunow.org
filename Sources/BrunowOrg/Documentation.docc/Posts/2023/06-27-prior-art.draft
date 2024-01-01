@@ -1,0 +1,13 @@
+# Prior Art
+The importance of knowing what has come before.
+
+@Metadata {
+  @Available("Brunow", introduced: "2023.06.27")
+  @PageColor(purple)
+}
+
+Early in my software development journey I thought that being good meant
+inventing new things. I felt like looking at similar solutions for the problem
+I was working on was a form of cheating &mdash; copying from my neighbor on a
+test. Wrapped up in that was a feeling like I wasn't smart if I needed to look
+up the answer.

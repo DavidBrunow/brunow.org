@@ -1,0 +1,14 @@
+# I Want To Know Who I'm Working With
+date: 2015-03-16T22:39:51-05:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+I'm looking at a lot of websites for local businesses right now and I'm surprised by how many of them don't tell me anything about the people that work there. It seems crazy to me, why wouldn't a small business owner want to prioritize one of her biggest forms of differentiation &mdash; the fact that she is a person who lives in the community and cares about her work? She could be the antithesis to the faceless corporation. But for some reason she isn't.
+
+One reason I've heard is that small businesses want to seem larger than they are. Multiple small business owners have said that to me and I don't know whether to believe their anecdotal evidence. Personally, I would much rather do business with a highly qualified individual running his own business than an employee of a 100 person business. I guess size doesn't matter to me. Let me know [on Twitter](https://www.twitter.com/davidbrunow) how you feel about it.
+
+Another reason I can think of has to do with website maintenance. If you have employees that leave then it could look bad to have them on your site at any point in time. And you have to have [a way to easily maintain your site when that happens](http://ShepherdDog.co/technology-services/index.html#website-maintenance) or things will quickly look out of date. I get that. But being able to put a face with a name makes such a huge difference on an instinctual level. And maybe that's the problem &mdash; the fear that if someone dislikes me in their gut the moment they see my face then I've lost a client before I've even had a chance. That is scary. But I doubt that my face &mdash; or your face &mdash; would have that kind of impact on any sizable part of the population. But if a potential client can't see me then they can only judge the text on the page. And if my competitor has a picture then my text won't stand a chance against a human face (assuming, as I stated above, that only a small amount of the population will dislike that human face instinctually.) Back to the point about employees leaving. Yes, if you constantly have different people on your site it will look bad. But it looking bad will be the least of your concerns because if that is happening then your company is in trouble anyway because you won't have sufficiently trained employees. If someone leaves your company every once in a while then people might notice, but they all know that people change jobs. Hell, they might have even changed jobs themselves once or twice.
+
+So what else am I missing? Maybe people think it is hard to take good pictures of themselves to put up there? Maybe they don't want the entire Internet to get into their private life? What else am I missing? And is any reason good enough to not have your picture there?
+

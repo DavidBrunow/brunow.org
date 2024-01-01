@@ -1,0 +1,9 @@
+# Choosing The Right Thing
+date: 2016-06-04T12:59:29-05:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+I don't think us humans are good at making choices when any level of ambiguity or unknowns are involved. Take hiring a new employee as an example. The likelihood of finding the right person is a function of how clear the requirements for the position are and how much you know about each candidate. In most hiring situations I've been around the job is poorly defined and the only information you have about the candidate is what they have told you through their resume, cover letter, and a series of interviews. This is a situation where both parties need much more data to make a good decision. The amount of data is far beyond what you can get from doubling the number of interviews. You need to know what it is like to work with that person every day. She needs to know what her real job is and what her coworkers will be like to work with every day. Thousands if not hundreds of thousands of additional data points are needed. But they have to be the right data points. We don't need to take her on a corporate retreat to see how she'd fit in (unless frequent corporate retreats are part of the job). We need relevant data. All the data in the world would actually make things harder to use because we can't easily know which parts are relevant. The data we need is specific to our applicant, our people, our company, and the position we need.
+
+This job applicant example was an easy one for me to come up with but I'm sure it isn't the only situation where the same factors apply. How can you apply the same idea to your problems that don't have great solutions?

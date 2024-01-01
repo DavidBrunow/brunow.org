@@ -1,0 +1,7 @@
+# Do No Harm
+date: 2016-08-07T22:56:05-05:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+I was listening to a Mission Dharma Dharma Talk a couple of days ago and the teacher, Howie Cohn, was discussing the Buddhist principal of doing no harm. He explained it in a way that I hadn't thought of before and that I found interesting. I've been doing my best not to kill things but not doing harm is another step further. The interesting part of what he said was about how my choice to do no harm affects the people around me. If people around me no that I won't harm them then they can be less guarded, more open, and closer to their true and best selves. That's an aspect of doing no harm that I've never thought of before but I really like the idea. I think the follow-on effects of people being able to be at peace around you can be profound.

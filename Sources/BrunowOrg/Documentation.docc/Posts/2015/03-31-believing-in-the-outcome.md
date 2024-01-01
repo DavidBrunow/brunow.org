@@ -1,0 +1,17 @@
+# Believing in the Outcome
+date: 2015-03-31T21:36:48-05:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+One of the most difficult things about sticking with something new like an exercise routine, diet, training program, or a new business is believing that sticking with what you're doing will give you the outcome you wanted at the beginning. With a daily running routine this difficulty may come in the form of thoughts in your head telling you that you aren't making progress after just a week of running. With a training program you may start to believe that you just can't learn what you're trying to learn because it doesn't feel like you've made any progress.
+
+The time it takes to see your outcomes feels like forever when you're in the middle of it. When our attention changes by the minute or second, the month it takes to see improvements from running every day feels like forever. The progress is slow, steady, and largely invisible.
+
+Many people give up new things quickly because of these thoughts in their head. They are convinced that what they wanted at the beginning isn't possible. They won't ever get into better shape by running. They won't ever learn that new thing because it's just not one of their natural talents. They close down their new business because it isn't ever going to take off.
+
+Another group of people handles those thoughts differently but nearly as destructively. When she doesn't see progress from running in a week, she changes her exercise program to lifting weights instead. And then a week later changes it to something else. She feels she has better control over the outcome. When he doesn't feel like he's learned anything in a week he tries something else, something closer to his areas of expertise. When the new business isn't attracting customers they decide to go after a different group of customers. This group is just as likely to succeed as the first group.
+
+The hardest part about doing just about anything is sticking to it. Doing the exact same thing day after day. Putting in the work with what feels like no guarantee of an outcome. Seeing no forward progress but continuing to put one foot in front of the other.
+
+Consistency is the key to success. Believe in the outcome. 

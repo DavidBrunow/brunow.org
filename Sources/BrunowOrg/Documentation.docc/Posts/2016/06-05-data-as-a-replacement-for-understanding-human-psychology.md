@@ -1,0 +1,11 @@
+# Data As A Replacement For Understanding Human Psychology
+date: 2016-06-05T12:05:17-05:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+Let's take an example of collecting data on how your customers use your website. You can see what they click on, how often they visit, what kind of device they are on, and many other things that can tell you about them. You can use this data to make some relevant decisions like what kinds of devices you need to focus your testing on or what languages you need to support. Using the data in this way is smart and a powerful use of analytics.
+
+I have a bias against using analytics because of another way people use them &mdash; to try to predict behavior. This is purely conjecture, but I feel like companies collecting huge amounts of data do so because they don't understand human psychology and they believe that data about human behavior is a good replacement for that understanding. They probably think that the data is better than psychology because it is hard and factual compared to the inherent squishiness of psychology since humans are squishy.
+
+Part of the reason I'm biased against analytics is because I believe I'm good at understanding human psychology. That shapes the way we run our company and is probably one of the fundamental reasons that companies like Apple and Google have such different approaches to product development. Apple believes they know what people want and only show the world those things. Google believes that data will tell them what people want and shares everything they are working on so they can get more data. I'm not sure that either approach is wrong but the approach you choose must be aligned with your resources and culture, so there may be a right and wrong answer for your situation.

@@ -1,0 +1,17 @@
+# In Defense of Shorter Lifespans
+date: 2015-02-07T22:28:41-06:00
+@Metadata {
+  @Available("Brunow", introduced: "2017.01.20")
+  @PageColor(purple)
+}
+We are a low bandwidth species and the older we get the more slowly we learn. By low bandwidth I mean that our consciousness is not able to handle very much information &mdash; therefore we cannot learn quickly because we just can't handle anything but the very slowest trickle of teaching.
+
+This only gets worse as we get older. We move less and do the same things repeatedly. Our bodies atrophy and our minds grow bored without the novelty of change. We accumulate stuff and grow attached to it and fight anything that might take it away &mdash; further cementing our fixed patterns of living because any change could make the whole thing fall apart.
+
+These fixed patterns get reinforced throughout society. The old are in charge and are making the rules. Rules that fight change and progress. Rules that retain the status quo of rich, old, white men running things.
+
+It is youth that moves our race forward. And I don't mean the youth that the media idolizes in order to sell their agenda, like all these so called child prodigies. I mean youth as a whole. The youth that grow up with a smartphone in their hands are starting far ahead of where we did. Today's technology will be second nature to them, just as yesterday's technology was second nature to us. This allows their mind to work in ways that ours don't naturally and probably can't. 
+
+If we continue lengthening our lives in an endless quest to live forever we do so while crippling the future of our race. There will be no room for youth. Our minds will calcify and we will fight for our own individual agendas rather than for our race. Our forward progress will stop, then regress, and send us to a dark age.
+
+I have no desire to live forever. And while I live I will strive to remain child-like &mdash; moving, learning, changing, and growing.
