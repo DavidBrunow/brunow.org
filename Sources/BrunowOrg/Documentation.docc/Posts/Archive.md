@@ -11,6 +11,7 @@ All posts
 
 ## Topics
 
+  - <doc:2024>
   - <doc:2023>
   - <doc:2017>
   - <doc:2016>
