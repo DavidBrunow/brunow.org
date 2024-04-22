@@ -5,14 +5,19 @@ with a flexible plugin architecture, but I find that limiting that flexibility
 makes it more ergonomic.
 
 @Metadata {
-  @Available("Brunow", introduced: "2024.03.31")
+  @Available("Brunow", introduced: "2024.04.22")
   @PageColor(purple)
+  @PageImage(
+    purpose: card,
+    source: "exampleDangerReport",
+    alt: "Screenshot of a comment on a GitHub pull request made by a GitHub Action using Danger Swift."
+  )
 }
 
 ## Overview
 
 Danger is a tool that connects your CI build systems to your pull requests. This
-provides an excellent developer experience where, most of the time, they can
+provides an excellent developer experience where (most of the time) they can
 know whether a pull request is in a healthy state by looking at a comment
 directly on that pull request.
 
@@ -29,8 +34,8 @@ of that, there are Danger runners written in Kotlin and Swift which hand off the
 bulk of the work to Danger JS but allow for Dangerfiles, the file which define
 what Danger should do, written in languages that will be more familiar to
 mobile developers. I prefer to use Danger Kotlin when building CI for Android or
-other Java-based projects, and Danger Swift when building CI for Apple
-platforms because I find it is easier to get folks involved in CI code when it
+other Java-based projects and Danger Swift when building CI for Apple
+platforms, because I find it is easier to get folks involved in CI code when it
 is in a language they use every day. It is also more likely that folks in a
 specific community will create plugins for Danger that you could find useful –
 folks using Danger Swift will be more likely to create plugins around Xcode and
@@ -85,8 +90,12 @@ if (!hasChangelog) {
 ```
 
 This simple example checks to see if the `changelog.md` file has been modified
-as part of the pull request, and if not, adds a warning to the pull request
-letting the developer know that they need to update the change log.
+as part of the pull request and, if not, adds a warning to the pull request
+letting the developer know that they need to update the changelog. Providing
+that feedback through this automation means that a contributor to a repo can
+quickly learn what changes they need to make to meet the standards of that repo.
+Plus, the maintainer of the repo can focus on things only humans can do, like
+making sure that the pull request follows their architectural guidelines.
 
 At the beginning of every Dangerfile, the Danger library must be imported. Let's
 talk about how that works next.
@@ -94,7 +103,7 @@ talk about how that works next.
 ### The Danger Swift Library
 
 The Danger Swift library is what powers the different things you can do in a
-Dangerfile. The library is built of the core Danger functionality plus any
+Dangerfile. The library is built with the core Danger functionality plus any
 plugins that you've chosen to integrate. The documentation recommends
 integrating Danger into your workflow by
 [adding Danger Swift and any related plugins to your `Package.swift` file](https://danger.systems/swift/guides/about_the_dangerfile#swift-package-manager-more-performant).
@@ -148,8 +157,11 @@ and run the runner and library:
 * I don't like to mix tooling and my app's dependencies
 * I don't always want to use SPM
 * I don't want to re-build Danger on every run
-* The recommended approach is invasive to my project, requiring me to add a folder that will not be used
-* Due to the invasive nature of the recommended approach, applying the same Danger configurations across multiple repos, and keeping those configurations in sync, creates a lot of manual overhead
+* The recommended approach is invasive to my project, requiring me to add a
+folder that will not be used
+* Due to the invasive nature of the recommended approach, applying the same
+Danger configurations across multiple repos, and keeping those configurations in
+sync, it creates a lot of manual overhead
 * I like pre-built binaries
 
 What I want is a pre-built executable for the Danger Swift runner, and a
@@ -173,7 +185,7 @@ swift build -c release --arch arm64 --arch x86_64
 
 Swift builds the `danger-swift` binary and puts it in the 
 ".build/apple/Products/Release/danger-swift" folder so we'll need to copy it
-from there to where we need it. All that is simple and straightforward. 
+from there to where we need it. All of that is simple and straightforward. 
 
 #### The Library
 
@@ -187,15 +199,15 @@ redistribute the library.
 ##### Integrating Plugins
 
 Fortunately, Danger Swift has already gone through the process of integrating a
-common plugin into the library, SwiftLint, so we can follow the maintainer's
+common plugin, SwiftLint, into the library so we can follow the maintainer's
 lead and do the same thing for our plugins. There is already a "Plugins" folder
 in the "Sources/Danger" folder and adding our plugin there is quite simple – we
-just copy the source code folder into the "Plugins" folder and then get the
-Danger library to compile again. Doing that requires fixing any naming conflicts
-and, while we're in there, we'll fix warnings around importing Danger by
-removing any `import Danger` code. Let's walk through an example with a popular
-plugin, [DangerSwiftCoverage](https://github.com/f-meloni/danger-swift-coverage),
-which gathers code coverage and so it can be posted on pull requests.
+copy the source code folder into the "Plugins" folder and then make whatever
+changes are need to make the Danger library successfully compile again. Doing
+that requires fixing any naming conflicts and, while we're in there, we'll fix
+warnings around importing Danger by removing any `import Danger` code. Let's
+walk through an example with a popular plugin, [DangerSwiftCoverage](https://github.com/f-meloni/danger-swift-coverage),
+which gathers code coverage so it can be posted on pull requests.
 
 1. Fork Danger Swift and clone the fork to your machine
 1. Clone DangerSwiftCoverage to your machine
@@ -254,8 +266,9 @@ because [library evolution](https://www.swift.org/blog/library-evolution/) is
 not turned on. This means that when you change the default version of Xcode on a
 machine, and therefore change the default version of Swift, you'll need to
 rebuild the Danger Swift library. I've worked around this in the past by keeping
-an older version of Xcode on the build machines, but it is easy to forget why
-you're doing that and inadvertently break things.
+an older version of Xcode on the build machines that is only used to run Danger
+Swift, but it is easy to forget why you're doing that and inadvertently break
+things.
 
 > Note: It might be possible to use library evolution with this libDanger.dylib
 and the object files, but I was not able to make it work.
@@ -282,13 +295,13 @@ I've added a
 ### Using this Setup
 
 Now that we have an executable binary and a framework, how do we use them in our
-CI jobs? Each of them is portable, but we don't really have a good place to
-store them. I like to store all of my CI tooling in a centralized place but I'll
-go into more detail about that some other time.
+CI jobs? Each of them is portable, so we can put them where we need them. I like
+to store all of my CI tooling in a centralized place, which I've talked about in
+my [previous blog post on CI tooling](<doc:04-21-ci-tooling>).
 
-For now, I'll just say that the `danger-swift` executable and the
-Danger.framework library need to be in the same directory when you run
-`danger-swift`.
+If you don't want to, or can't, use that centralized place, then you need to
+make sure that the `danger-swift` executable and the Danger.framework library
+are in the same directory when you run `danger-swift`.
 
 Once you have them there, you'll want to do something like this in your CI job:
 
