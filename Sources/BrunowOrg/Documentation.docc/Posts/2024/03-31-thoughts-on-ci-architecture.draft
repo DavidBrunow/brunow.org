@@ -1,0 +1,52 @@
+# Thoughts on Mobile CI Architecture
+
+Maybe: How I think about architecting mobile CI, including what I optimize for
+and the tradeoffs I choose. Or maybe: How I think about mobile CI architecture,
+while optimizing for self-service developer experience and ease of maintenance.
+
+@Metadata {
+  @Available("Brunow", introduced: "2024.03.31")
+  @PageColor(purple)
+}
+
+## Overview
+
+When I say CI I don't necessarily mean it in the literal sense of "continuous
+integration", but rather as the build processes that are in place to ensure code
+can be safely integrated. In the mobile world "continuous" is only as fast as
+the app stores can handle our submissions which does not meet any definition of
+continuous.
+
+I risk stating the obvious, but I don't think I can avoid mentioning that every
+architecture must be tailored to the situation. The architecture of a subway
+station would probably make for a poor single-family residence, and vice versa.
+There are no silver bullets or magic wands and every decision involves a
+tradeoff – just like everything else we do. 
+
+I have direct experience in one or two situations but I have no experience with
+building really high-scale CI, where the best way to measure scale is probably
+lines of code committed per day (Footnote for why I think this is the best way to measure?). Despite only having direct experience with a
+couple of different situations I have a good amount of experience with some
+common tools. I've built CI systems around BitBucket and Jenkins, GitHub
+Enterprise and Jenkins, GitHub and GitHub Actions, and GitLab and GitLab
+Actions. I've also worked directly with a number of open source tools (and have
+made contributions to multiple, but not all, of them):
+
+* [Danger JS]()
+* [Danger Kotlin]()
+* [Danger Swift]()
+* [Fastlane](https://github.com/fastlane/fastlane)
+* [ktlint]()
+* [Swift Format](https://github.com/apple/swift-format)
+* [SwiftLint]()
+
+In architecture, as in life, everything is connected. Just as you could stretch
+a [recipe for apple pie to include needing to create the universe](https://www.goodreads.com/quotes/32952-if-you-wish-to-make-an-apple-pie-from-scratch), you could also
+consider the creation of the first grains of sand as part of the recipe for a CI
+system. To avoid a lot of typing about things in which I have no expertise, I'll
+start by talking through the components of a CI system that I consider when
+designing the architecture.
+
+## Components of CI Systems
+
+
