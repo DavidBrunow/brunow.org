@@ -15,35 +15,35 @@ multiple projects.
 
 ## Overview
 
-When I was working at American Airlines, I took charge of the CI architecture
-for Apple platforms. The CI supported the main American Airlines customer-facing
-app, which was modularized with each module living in its own repo. This meant
-that we needed our CI architecture to support many repos. Since CI architecture
-wasn't my primary responsibility (I was a senior iOS developer on a platform
-team), I also needed the system to be easily maintained from as few places as
-possible – I really did not want to update every module repo every time we
-wanted to add new functionality to our CI pipelines.
+When I was working at my previous employer, I took charge of the CI architecture
+for Apple platforms. The CI supported the main customer-facing app, which was
+modularized with each module living in its own repo. This meant that we needed
+our CI architecture to support many repos. Since CI architecture wasn't my
+primary responsibility (I was a senior iOS developer on a platform team), I also
+needed the system to be easily maintained from as few places as possible – I
+really did not want to update every module repo every time we wanted to add new
+functionality to our CI pipelines.
 
 My solution was to have the bare minimum of CI infrastructure in the repos and
 have everything else living in a separate repo which could be cloned during the
-CI job. When I first implemented this at American Airlines we were using GitHub
-Enterprise for our source control platform and Jenkins for CI, so that meant
-that every repo had a Jenkinsfile but nothing else related to CI. When I
+CI job. When I first implemented this at my previous employer we were using
+GitHub Enterprise for our source control platform and Jenkins for CI, so that
+meant that every repo had a Jenkinsfile but nothing else related to CI. When I
 migrated the team from GitHub Enterprise to the hosted GitHub and switched CI to
 GitHub Actions, every repo had a yaml file defining their actions but nothing
 else related to CI. In both of these situations, updating the Jenkinsfiles or
 GitHub Actions yaml files across modules was painful, but it was also rare.
 
-When I started working at Hilton, they already had a similar app architecture
-that was modularized with each module in a separate repo. At that time, we were
-using a hosted BitBucket instance for our source control platform and Jenkins
-for CI so I implemented a similar pattern to what I had at American Airlines –
-each repo only had a Jenkinsfile in it and all the tools were hosted in a
-separate repo. Then when I migrated the team to a hosted GitLab instance, I was
-able to build things in such a way that each repo had no references to CI in the
-codebase – instead, the settings for each repo point to a centralized
-configuration file in that same separate repo that holds the rest of the CI
-tooling.
+When I started working at my current employer, they already had a similar app
+architecture that was modularized with each module in a separate repo. At that
+time, we were using a hosted BitBucket instance for our source control platform
+and Jenkins for CI so I implemented a similar pattern to what I had at my
+previous employer – each repo only had a Jenkinsfile in it and all the tools
+were hosted in a separate repo. Then when I migrated the team to a hosted GitLab
+instance, I was able to build things in such a way that each repo had no
+references to CI in the codebase – instead, the settings for each repo point to
+a centralized configuration file in that same separate repo that holds the rest
+of the CI tooling.
 
 The current state of our CI architecture is working really well for us, so in
 this post I'd like to share one bit that I think is critical – this separate
@@ -66,10 +66,10 @@ Let's talk through each of those in more detail.
 #### Branch per Supported Platform
 
 When I say "supported platform" here, I mean the type of thing being built. For
-example, at Hilton the CI infrastructure I've built supports both our Android
-app and our apps for Apple platforms (iOS, watchOS, and macOS command line
-tools). Therefore, our CI Tooling repo has two primary branches, `apple` for
-Apple platforms, and `android` for the Android app.
+example, at my current employer the CI infrastructure I've built supports both
+our Android app and our apps for Apple platforms (iOS, watchOS, and macOS
+command line tools). Therefore, our CI Tooling repo has two primary branches,
+`apple` for Apple platforms, and `android` for the Android app.
 
 When we want to make improvements to our Apple CI, we create a branch off of our
 `apple` branch, do the work, and create a merge request back into the `apple`
@@ -79,9 +79,9 @@ that that duplicated work is less effort and less error-prone than putting all
 our tooling together onto one branch. We're also looking into ways to abstract
 out some of that duplicated work.
 
-> Note: In reality, our naming at Hilton is not quite this simple at the moment
-> because I thought it would be useful to have more specific branch naming. The
-> branch name we use for Apple platforms is currently
+> Note: In reality, our naming at my current employer is not quite this simple
+> at the moment because I thought it would be useful to have more specific
+> branch naming. The branch name we use for Apple platforms is currently
 > `apple/xcode14-dangerSwiftLint-dangerSwiftFormat` – I thought that including
 > the capabilities enabled by the branch in the branch name would be useful but
 > it simply made things more complicated while providing no benefit.
