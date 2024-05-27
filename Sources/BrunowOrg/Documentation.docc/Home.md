@@ -22,6 +22,7 @@ In the past I've generated this site with a static site generator called Magneto
 
 ### Most Recent Posts
 
+- <doc:05-27-automating-release-versioning>
 - <doc:04-22-how-i-like-to-use-danger>
 - <doc:04-21-ci-tooling>
 - <doc:11-30-follow-up-snapshot-testing-xcode-cloud-sonoma>

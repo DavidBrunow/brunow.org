@@ -4,7 +4,7 @@ date: 2015-02-05T23:05:02-06:00
   @Available("Brunow", introduced: "2017.01.20")
   @PageColor(purple)
 }
-Another in my [series of everyday rules](http://brunow.org/2015/01/31/david's-rules---apologies/):
+Another in my [series of everyday rules](http://brunow.org/2015/01/31/davids-rules---apologies/):
 
 This is two rules for the price of one:
 
