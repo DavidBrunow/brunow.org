@@ -30,7 +30,7 @@ do
   # content_text=`echo "$json" | jq -r .primaryContentSections[].content[].inlineContent[].text`
   summary=`printf "%s" "$json" | jq -r .abstract[]?.text | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g'`
   date_published=`printf "%s" "$json" | jq -r .metadata.platforms[0].introducedAt | tr . -`
-  if [[ -e "$date_published" ]]
+  if [[ "$date_published" != "null" ]]
   then
     items+=("{\"id\":\"${id}\", \"title\": \"${title}\", \"url\": \"${url}\", \"content_html\": \"${content_html}\", \"summary\": \"${summary}\", \"date_published\": \"${date_published}T23:59:59-06:00\"}")
   fi
@@ -39,6 +39,6 @@ PREVIOUS_IFS=IFS
 IFS=,
 feed_json="{\"version\": \"https://jsonfeed.org/version/1.1\", \"user_comment\": \"Meow meow meow\", \"title\": \"Brunow\", \"home_page_url\": \"https://brunow.org/\", \"feed_url\": \"https://brunow.org/feed.json\", \"items\": [${items[*]}]}"
 IFS=PREVIOUS_IFS
-printf "%s" "$feed_json" > docs/feed.json
+printf "%s" "$feed_json" > docs/documentation/brunow/feed.json
 
 rm -rf htmldocs
