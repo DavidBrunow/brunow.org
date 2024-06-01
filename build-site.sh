@@ -16,7 +16,7 @@ do
   # echo "$file"
   json=`cat "$file" | jq`
   # echo "$json"
-  id=`printf "%s" "$json" | jq -r .identifier.url`
+  id=`printf "%s" "$json" | jq -r .identifier.url | sed 's#doc://Brunow/documentation/Brunow/#https://davidbrunow.github.io/brunow.org/documentation/brunow/#g'`
   title=`printf "%s" "$json" | jq -r .metadata.title`
   url="$id"
   # `awk '{printf "%s\\n", $0}' ${html_file}`
