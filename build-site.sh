@@ -2,7 +2,7 @@
 
 swift package --allow-writing-to-directory docs generate-documentation --target Brunow --disable-indexing --output-path docs --transform-for-static-hosting --hosting-base-path brunow.org
 
-./docc2html docs htmldocs -f
+./docc2html docs htmldocs -f -t ../docc2html/Templates 
 
 items=()
 
