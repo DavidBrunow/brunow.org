@@ -37,7 +37,7 @@ do
 done
 PREVIOUS_IFS=IFS
 IFS=,
-feed_json="{\"version\": \"https://jsonfeed.org/version/1.1\", \"user_comment\": \"Meow meow meow\", \"title\": \"Brunow\", \"home_page_url\": \"https://brunow.org/\", \"feed_url\": \"https://brunow.org/feed.json\", \"items\": [${items[*]}]}"
+feed_json="{\"version\": \"https://jsonfeed.org/version/1.1\", \"user_comment\": \"Meow meow meow\", \"title\": \"Brunow\", \"home_page_url\": \"https://brunow.org/\", \"feed_url\": \"https://davidbrunow.github.io/brunow.org/documentation/brunow/feed.json\", \"items\": [${items[*]}]}"
 IFS=PREVIOUS_IFS
 printf "%s" "$feed_json" > docs/documentation/brunow/feed.json
 
