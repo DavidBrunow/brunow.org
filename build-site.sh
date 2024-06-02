@@ -16,9 +16,9 @@ do
   # echo "$file"
   json=`cat "$file" | jq`
   # echo "$json"
-  id=`printf "%s" "$json" | jq -r .identifier.url | sed 's#doc://Brunow/documentation/Brunow/#https://davidbrunow.github.io/brunow.org/documentation/brunow/#g'`
+  id=`printf "%s" "$json" | jq -r .identifier.url`
   title=`printf "%s" "$json" | jq -r .metadata.title`
-  url="$id"
+  url=`printf "%s" "$id" | sed 's#doc://Brunow/documentation/Brunow/#https://davidbrunow.github.io/brunow.org/documentation/brunow/#g'`
   # `awk '{printf "%s\\n", $0}' ${html_file}`
   # `sed -E ':a;N;$!ba;s/\r{0,1}\n/\\n/g' "${html_file}"`
   # `sed 's/$/\\n/' "${html_file}" | tr -d '\n'`
