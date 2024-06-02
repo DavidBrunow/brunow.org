@@ -25,7 +25,7 @@ do
   # `sed -i '' $'s/\r//' "${html_file}"`
   # content_html=`cat "${html_file}" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g' | sed $'s/\x0D//' | sed 's/$/,/g' | sed 's/["]/\\\"/g'`
   
-  content_html=`cat "${html_file}" | sed 's#\\\\#\\\\\\\\#g' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g' | sed 's/["]/\\\"/g'` # | sed 's/\	//g'`
+  content_html=`cat "${html_file}" | sed 's#\\\\#\\\\\\\\#g' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\n/g' | sed 's/["]/\\\"/g'` # | sed 's/\	//g'`
   # content_html=`sed 's/$/\\\\/g' <<<"$content_html"`
   # content_text=`echo "$json" | jq -r .primaryContentSections[].content[].inlineContent[].text`
   summary=`printf "%s" "$json" | jq -r .abstract[]?.text | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g'`
