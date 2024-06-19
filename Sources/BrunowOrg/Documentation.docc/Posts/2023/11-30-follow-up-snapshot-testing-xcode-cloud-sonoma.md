@@ -35,7 +35,7 @@ for testing (see [this documentation](https://developer.apple.com/documentation/
 for more information about the scripts that Xcode Cloud supports). Here is the
 script ([gist](https://gist.github.com/DavidBrunow/3ef4a1fa3e61c09411270c7c181c3174)):
 
-```shell
+```sh
 #!/bin/sh
 
 if [[ $CI_XCODEBUILD_ACTION == "test-without-building" ]]

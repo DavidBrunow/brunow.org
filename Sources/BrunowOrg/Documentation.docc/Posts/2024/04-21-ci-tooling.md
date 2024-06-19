@@ -111,7 +111,7 @@ operations will be performed on the repo where the CI job is being run, and
 An `unpack.sh` that moves a Dangerfile.swift to the right place could look like
 this:
 
-```shell
+```sh
 #! /bin/sh
 
 rm -rf $(dirname "$0")/.git
@@ -147,7 +147,7 @@ Using this repo is fairly simple – clone the repo with a depth of 1 to only
 clone the last commit, run the `unpack.sh` script, and then use the tools within
 the repo as you would in any other script. For example:
 
-```shell
+```sh
 ...
 git clone https://www.github.com/DavidBrunow/CI-Tooling.git --depth 1
 ./CI-Tooling/unpack.sh
@@ -216,7 +216,7 @@ specific to what I want to do on CI and might be a good starting point for you,
 but you also may already have all those bits figured out. But line 31 is
 important:
 
-```shell
+```sh
 export SCHEME=`xcodebuild -list -json | jq -r '.workspace.schemes[0]'`
 ```
 

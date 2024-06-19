@@ -145,7 +145,7 @@ preview of the rendered document.
 4. Create a link to the new post on the home page, for example: `- <doc:06-29-blog-as-documentation>`.
 5. Run a script that generates the site. The script runs this command which is
 quite a mouthful and difficult to memorize: 
-```shell 
+```sh
 swift package --allow-writing-to-directory docs generate-documentation --target Brunow --disable-indexing --output-path docs --transform-for-static-hosting
 ```
 6. Commit the docs directory.

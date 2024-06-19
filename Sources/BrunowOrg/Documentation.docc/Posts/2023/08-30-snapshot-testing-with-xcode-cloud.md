@@ -150,7 +150,7 @@ To create the `ci_scripts` directory:
 
 Here is the directory structure that I'm using:
 
-```shell
+```sh
 SpeakList/
   .git/
   App/
@@ -178,7 +178,7 @@ We need a symlink from the `SpeakList/App/ci_scripts` directory to the
 `SpeakList/Tests/SnapshotTests/__Snapshots__` directory which we can create by
 running this command in the `ci_scripts` directory:
 
-```shell
+```sh
 ln -s ../../Tests/SnapshotTests/__Snapshots__
 ```
 

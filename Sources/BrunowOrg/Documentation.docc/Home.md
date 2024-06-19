@@ -18,10 +18,13 @@ This is a general topic kind of blog where I share things that are going through
 
 In the past I've generated this site with a static site generator called Magneto. Recently I've moved to using Apple's DocC static site generator instead. DocC was not created for this purpose, it was created for code documentation (that's why it says "Language: Swift" in the top trailing corner), but I was looking for a new way to host my blog and also wanted to get some experience using DocC, so here we are.
 
+Subscribe to updates using my [JSON Feed](https://davidbrunow.github.io/brunow.org/documentation/brunow/feed.json).
+
 ## Topics
 
 ### Most Recent Posts
 
+- <doc:06-10-docc-json-feed>
 - <doc:05-27-automating-release-versioning>
 - <doc:04-22-how-i-like-to-use-danger>
 - <doc:04-21-ci-tooling>

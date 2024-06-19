@@ -139,7 +139,7 @@ to do so, in [the Danger Swift documentation](https://danger.systems/swift/guide
 prefer to install Danger JS through npm, which I prefer to install through
 Homebrew. Here are the steps to do that:
 
-```shell
+```sh
 brew install node
 npm install -g danger
 ```
@@ -179,7 +179,7 @@ don't need to do too much there. We want to make sure that it is built as a
 universal binary so it can run on both Apple Silicon and Intel, so we can build
 it like this:
 
-```shell
+```sh
 swift build -c release --arch arm64 --arch x86_64
 ```
 
@@ -216,7 +216,7 @@ the "Sources/Danger/Plugins" folder in Danger Swift. If you cloned the two repos
 next to each other, the copy command from the root of the Danger Swift repo
 would look like this: 
 
-```shell
+```sh
 cp -r ../danger-swift-coverage/Sources/DangerSwiftCoverage Sources/Danger/Plugins
 ```
 4. Open Danger Swift's Package.swift in Xcode and try to build the Danger
@@ -247,7 +247,7 @@ reason is that the `swift build` command will not create a framework like we're
 used to working with on iOS. Instead, it creates a folder full of object,
 .swiftmodule, and .dylib files:
 
-```shell
+```sh
 $ ls .build/apple/Products/Release                 
 Danger-Swift.o                          Danger_Swift.swiftmodule    RunnerLib.o
 Danger.o                                Logger.o                    RunnerLib.swiftmodule
@@ -283,7 +283,7 @@ to look for a "Danger.framework" to link against when running the Dangerfile.
 
 Once that is done, you can run this command to generate the framework:
 
-```shell
+```sh
 xcodebuild archive -project Danger.xcodeproj \
   -scheme Danger -sdk macosx -destination "generic/platform=macOS" \
   -archivePath "archives/Danger.framework"
@@ -305,7 +305,7 @@ are in the same directory when you run `danger-swift`.
 
 Once you have them there, you'll want to do something like this in your CI job:
 
-```shell
+```sh
 ...
 brew install node
 npm install -g danger
