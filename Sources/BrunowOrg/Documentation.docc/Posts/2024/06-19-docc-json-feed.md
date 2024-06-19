@@ -4,7 +4,7 @@ Stacking a pile of hacks to provide a fundamental part of a blog to my DocC site
 – a machine-parsable feed with updates as I post new things.
 
 @Metadata {
-  @Available("Brunow", introduced: "2024.06.10")
+  @Available("Brunow", introduced: "2024.06.19")
   @PageColor(purple)
   @PageImage(
     purpose: card,
